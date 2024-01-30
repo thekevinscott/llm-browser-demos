@@ -1,3 +1,3 @@
 # web-llm
 
-Implemenets a demo of web-llm.
+Demo of [web-llm](https://github.com/mlc-ai/web-llm).

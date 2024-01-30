@@ -1,3 +1,3 @@
 # Transformers.js
 
-Implemenets a demo of transformers.js.
+Demo of [transformers.js](https://huggingface.co/docs/transformers.js).
