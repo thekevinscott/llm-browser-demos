@@ -77,7 +77,6 @@ export class LLMTransformersJS extends LitElement {
   getModel = async (model: string) => {
     let generator: TextGenerationPipeline | undefined = this.generators.get(model);
     if (!generator) {
-      console.log('get model for', model)
       generator = await pipeline('text-generation', model, {
         progress_callback: this.writeLogs,
       });
@@ -135,13 +134,13 @@ export class LLMTransformersJS extends LitElement {
       <form>
       <div class="model">
       <label for="model">Model</label>
-      <input name="model" id="model" value="Xenova/gpt2" />
+      <input name="model" id="model" value="Xenova/phi-1_5_dev" />
       </div>
       <div class="input">
       <label for="max_tokens">Max Tokens</label>
-      <input type="number" name="max_tokens" id="max_tokens" value="20" />
+      <input type="number" name="max_tokens" id="max_tokens" value="128" />
       </div>
-      <textarea>Tell me a joke.</textarea>
+      <textarea>def fibonacci(n):</textarea>
       <input type="submit" />
       </form>
     `;

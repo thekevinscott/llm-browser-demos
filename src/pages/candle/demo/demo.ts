@@ -1,6 +1,5 @@
 import { css, html, LitElement, PropertyValueMap } from 'lit';
 import { customElement, query, state } from 'lit/decorators.js';
-import { Phi } from './phi';
 import { generate } from './generate';
 
 const MODELS: Record<string, {
@@ -135,15 +134,10 @@ export class CandleDemo extends LitElement {
     }
   };
 
-  writeResult = (result: string) => {
-    this.textarea.value += result;
-  }
-
   protected override firstUpdated(_changedProperties: PropertyValueMap<any> | Map<PropertyKey, unknown>): void {
     this.form.onsubmit = (e: SubmitEvent) => {
       e.preventDefault();
       this.generate(this.textarea.value);
-      // this.textarea.value = '';
     };
   }
 
@@ -168,7 +162,6 @@ export class CandleDemo extends LitElement {
       controller: runController,
     }, (data: any) => {
       if (data.status === "generating") {
-        // this.writeResult(data.token);
         this.textarea.value = `${prompt}${data.sentence}`;
       } else {
         this.writeLogs(JSON.stringify(data));

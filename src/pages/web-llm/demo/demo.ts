@@ -3,7 +3,14 @@ import { css, html, LitElement, PropertyValueMap } from 'lit';
 import { customElement, query, state } from 'lit/decorators.js';
 import * as webllm from "@mlc-ai/web-llm";
 import config from './gh-config';
-const models = config.model_list.reduce((acc: any, model: any) => ({
+const models: Record<string, {
+  "model_url": string;
+  "local_id": string;
+  "model_lib_url": string;
+  "vram_required_MB": number;
+  "low_resource_required": boolean;
+  "required_features"?: string[];
+}> = config.model_list.reduce((acc: any, model: any) => ({
   ...acc,
   [model.local_id]: model,
 }), {});
@@ -57,7 +64,7 @@ export class LLMWebLLM extends LitElement {
   @query('input[name="max_tokens"]')
   maxTokens!: HTMLInputElement;
 
-  @query('input[name="model"]')
+  @query('select[name="model"]')
   model!: HTMLInputElement;
 
   @query('input[type="submit"]')
@@ -106,6 +113,7 @@ export class LLMWebLLM extends LitElement {
     this.submit.setAttribute('disabled', '');
     try {
 
+      console.log(this.model.value);
       const chat = await this.getModel(this.model.value);
 
 
@@ -129,13 +137,20 @@ export class LLMWebLLM extends LitElement {
       <form>
       <div class="model">
       <label for="model">Model</label>
-      <input name="model" id="model" value="Phi2-q0f16" />
+      <select id="model" name="model">
+      ${Object.entries(models).map(([id, model]) => {
+      const label = `${model.local_id}`;
+      return html`
+        <option ?selected=${'Phi1.5-q0f16' === id} value="${id}">${label}</option>
+        `;
+    })}
+    </select>
       </div>
       <div class="input">
       <label for="max_tokens">Max Tokens</label>
-      <input type="number" name="max_tokens" id="max_tokens" value="20" />
+      <input type="number" name="max_tokens" id="max_tokens" value="128" />
       </div>
-      <textarea>Tell me a joke.</textarea>
+      <textarea>def fibonacci(n):</textarea>
       <input type="submit" />
       </form>
     `;
