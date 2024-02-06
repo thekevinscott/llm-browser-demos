@@ -1,6 +1,8 @@
 import { html } from 'lit';
 
-const buildPath = (path: string) => `/${[import.meta.env.BASE_URL, path].filter(Boolean).join('/')}`;
+const buildPath = (path: string) => `/${[import.meta.env.BASE_URL, path].reduce((arr, part) => {
+  return arr.concat(part.split('/'))
+}, []).filter(Boolean).join('/')}`;
 
 export const ROUTES = [
   { path: buildPath(''), render: () => html`<llm-home></llm-home>` },
