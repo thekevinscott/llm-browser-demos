@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "start": "vite --config vite.config.ts",
-    "build": "vite build --config vite.config.ts --base=/llm-browser-demos"
+    "build": "vite build --config vite.config.ts --base=/llm-browser-demos && cp dist/index.html dist/404.html"
   },
   "keywords": [],
   "author": "",
