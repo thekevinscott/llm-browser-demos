@@ -1,11 +1,12 @@
 {
   "name": "llm-browser-demos",
+  "type": "module",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "vite --config vite.config.ts",
-    "build": "vite build --config vite.config.ts"
+    "build": "vite build --config vite.config.ts --base=/llm-browser-demos"
   },
   "keywords": [],
   "author": "",
