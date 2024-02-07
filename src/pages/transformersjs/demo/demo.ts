@@ -120,6 +120,7 @@ export class LLMTransformersJS extends LitElement {
         },
       } as any;
       const _result = await generator(prompt, config);
+      this.writeLogs('complete');
       // _result is same as decoded text above
       // console.log(result);
       // this.generatedText = result.generated_text;

@@ -124,6 +124,7 @@ export class LLMWebLLM extends LitElement {
       const _reply0 = await chat.generate(prompt, generateProgressCallback);
 
       this.writeLogs(await chat.runtimeStatsText());
+      this.writeLogs('complete');
     } finally {
       this.submit.removeAttribute('disabled');
 

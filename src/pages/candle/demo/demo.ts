@@ -166,7 +166,8 @@ export class CandleDemo extends LitElement {
       } else {
         this.writeLogs(JSON.stringify(data));
       }
-    })
+    });
+    this.writeLogs('complete');
   }
 
   override render() {

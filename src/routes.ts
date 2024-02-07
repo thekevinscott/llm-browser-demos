@@ -9,5 +9,6 @@ export const ROUTES = [
   { path: buildPath(`transformers.js`), render: () => html`<llm-transformersjs></llm-transformersjs>` },
   { path: buildPath(`web-llm`), render: () => html`<llm-webllm></llm-webllm>` },
   { path: buildPath(`candle`), render: () => html`<llm-candle></llm-candle>` },
-  { path: '*', render: () => html`Not Found` },
+  // { path: '*', render: () => html`Not Found` },
+  { path: '*', render: () => html`<llm-home></llm-home>` },
 ];
