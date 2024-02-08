@@ -11,6 +11,7 @@ export class Candle extends LitElement {
       display: flex;
       flex-direction: column;
       flex: 1;
+      height: 100%;
     }
     `
   ];

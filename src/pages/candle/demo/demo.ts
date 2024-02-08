@@ -75,6 +75,7 @@ export class CandleDemo extends LitElement {
       display: flex;
       flex-direction: column;
       flex: 1;
+      overflow: hidden;
     }
     textarea {
       flex: 1;
