@@ -22,14 +22,16 @@ export class LLMWebLLM extends LitElement {
     :host {
       display: flex;
       flex-direction: column;
+      flex: 1;
     }
     textarea {
-      height: 400px;
+      flex: 1;
     }
 
     form {
       display: flex;
       flex-direction: column;
+      flex: 2;
     }
 
     #logs {

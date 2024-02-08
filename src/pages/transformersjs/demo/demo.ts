@@ -13,21 +13,23 @@ export class LLMTransformersJS extends LitElement {
     :host {
       display: flex;
       flex-direction: column;
+      flex: 1;
     }
     textarea {
-      height: 400px;
+      flex: 1;
     }
 
     form {
       display: flex;
       flex-direction: column;
+      flex: 2;
     }
 
     #logs {
-      height: 200px;
       overflow: scroll;
       background: #CCC;
       padding: 5px;
+      flex: 1;
     }
 
     input, textarea {
@@ -133,16 +135,16 @@ export class LLMTransformersJS extends LitElement {
     return html`
       <pre id="logs"></pre>
       <form>
-      <div class="model">
-      <label for="model">Model</label>
-      <input name="model" id="model" value="Xenova/phi-1_5_dev" />
-      </div>
-      <div class="input">
-      <label for="max_tokens">Max Tokens</label>
-      <input type="number" name="max_tokens" id="max_tokens" value="128" />
-      </div>
-      <textarea>def fibonacci(n):</textarea>
-      <input type="submit" />
+        <div class="model">
+        <label for="model">Model</label>
+        <input name="model" id="model" value="Xenova/phi-1_5_dev" />
+        </div>
+        <div class="input">
+        <label for="max_tokens">Max Tokens</label>
+        <input type="number" name="max_tokens" id="max_tokens" value="128" />
+        </div>
+        <textarea>def fibonacci(n):</textarea>
+        <input type="submit" />
       </form>
     `;
   }
